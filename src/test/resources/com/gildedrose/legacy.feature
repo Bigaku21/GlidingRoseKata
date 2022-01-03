@@ -50,28 +50,33 @@ Scenario: "Sulfuras", being a legendary item, never has to be sold or decreases 
 	And its quality is 80
 	
 	
-Scenario: "Backstage passes" decreases in quality if there are more than 10 days left
-	Given an item named "Backstage passes" with quality 10 and which has to be sold in 25 days
+Scenario: "Backstage passes to a TAFKAL80ETC concert" increases in quality if there are more than 10 days left
+	Given an item named "Backstage passes to a TAFKAL80ETC concert" with quality 10 and which has to be sold in 25 days
 	When 5 days have passed
 	Then it has to be sold in 20 days
-	And its quality is 5
+	And its quality is 15
 	
 	
-#Functionality is not working yet
-#Scenario: "Backstage passes" increases by 2 in quality if there are 10 or less days left, but more than 5
-#	Given an item named "Backstage passes" with quality 10 and which has to be sold in 10 days
-#	When 3 days have passed
-#	Then it has to be sold in 7 days
-#	And its quality is 16
-#
-#Scenario: "Backstage passes" increases by 3 in quality if there are 5 or less days left, but more than 0
-#	Given an item named "Backstage passes" with quality 5 and which has to be sold in 5 days
-#	When 4 days have passed
-#	Then it has to be sold in 1 days
-#	And its quality is 17
-#
-#Scenario: "Backstage passes" quality drops to 0 after the concert
-#	Given an item named "Backstage passes" with quality 50 and which has to be sold in 2 days
-#	When 4 days have passed
-#	Then it has to be sold in -2 days
-#	And its quality is 0
+Scenario: "Backstage passes to a TAFKAL80ETC concert" increases by 2 in quality if there are 10 or less days left, but more than 5
+	Given an item named "Backstage passes to a TAFKAL80ETC concert" with quality 10 and which has to be sold in 10 days
+	When 3 days have passed
+	Then it has to be sold in 7 days
+	And its quality is 16
+
+Scenario: "Backstage passes to a TAFKAL80ETC concert" increases by 3 in quality if there are 5 or less days left, but more than 0
+	Given an item named "Backstage passes to a TAFKAL80ETC concert" with quality 5 and which has to be sold in 5 days
+	When 4 days have passed
+	Then it has to be sold in 1 days
+	And its quality is 17
+
+Scenario: "Backstage passes to a TAFKAL80ETC concert" quality drops to 0 after the concert
+	Given an item named "Backstage passes to a TAFKAL80ETC concert" with quality 50 and which has to be sold in 2 days
+	When 4 days have passed
+	Then it has to be sold in -2 days
+	And its quality is 0
+	
+Scenario: "Backstage passes to a Kid Cudi concert" needs to be treated like other tickets
+	Given an item named "Backstage passes to a Kid Cudi concert" with quality 50 and which has to be sold in 2 days
+	When 4 days have passed
+	Then it has to be sold in -2 days
+	And its quality is 0
